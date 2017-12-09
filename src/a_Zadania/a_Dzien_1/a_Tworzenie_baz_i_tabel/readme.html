@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p><img alt="Logo" src="http://coderslab.pl/svg/logo-coderslab.svg" width="400"></p>
+
+<h1 id="tworzeniebazydanychitabel">Tworzenie bazy danych i tabel</h1>
+
+<p>Wszystkie zapytania do bazy wykonuj w <strong>konsoli</strong>, dodatkowo zapisz treść zapytań do plików <code>java</code> przygotowanych do każdego zadania. <br />
+Zadania z wykładowcą i zadania samodzielne będą wykonywane na <strong>2 różnych</strong> bazach danych.</p>
+
+<h4 id="zadanie1rozwizywanezwykadowc">Zadanie 1 - rozwiązywane z wykładowcą.</h4>
+
+<p>W pliku <code>Main1.java</code>:</p>
+
+<ol>
+<li>Stwórz nową bazę danych o nazwie <code>products_ex</code>. Zapytanie SQL zapisz w zmiennej <code>query</code>.</li>
+
+<li>Następnie napisz kod w metodzie <code>main</code>, który stworzy połączenie do tej bazy danych.</li>
+</ol>
+
+<h4 id="zadanie2rozwizywanezwykadowc">Zadanie 2 - rozwiązywane z wykładowcą.</h4>
+
+<p>W pliku <code>Main2.java</code>:</p>
+
+<p>W bazie danych o nazwie <code>products_ex</code> stwórz następujące tabele:</p>
+
+<pre><code class="SQL language-SQL">* Products:
+  * id: int
+  * name: string
+  * description: string
+  * price: decimal (2 decimal places)
+* Orders:
+  * id:int
+  * description: string
+* Clients:
+  * id: int
+  * name: string
+  * surname: string
+</code></pre>
+
+<p>Zapytania SQL zapisz w przygotowanym pliku.
+<strong>Pamiętaj aby użyć odpowiednich typów danych dla każdej kolumny w bazie.</strong></p>
+
+<hr />
+
+<h4 id="zadanie3">Zadanie 3</h4>
+
+<p>W pliku <code>Main3.java</code>:</p>
+
+<ol>
+<li>Stwórz nową bazę danych o nazwie <code>cinemas_ex</code>. Pamiętaj że, jeżeli baza już istnieje, to nie da się jej stworzyć.  </li>
+
+<li>Następnie napisz kod w metodzie <code>main</code>, który stworzy połączenie do tej bazy danych.</li>
+</ol>
+
+<h4 id="zadanie4">Zadanie 4</h4>
+
+<p>W pliku <code>Main4.java</code>:</p>
+
+<p>W bazie danych o nazwie <code>cinemas_ex</code> stwórz następujące tabele (Jeżeli tabela już istnieje, to nie da się jej stworzyć - SQL zwróci błąd):</p>
+
+<pre><code class="SQL language-SQL">* Cinemas:
+  * id: int
+  * name: string
+  * address: string
+* Movies:
+  * id: int
+  * name: string
+  * description: string
+  * rating: decimal (2 decimal places)
+* Tickets:
+  * id: int
+  * quantity: int
+  * price: decimal (2 decimal places)
+* Payments:
+  * id: int
+  * type: string
+  * date: date
+</code></pre>
+
+<p>Zapytania SQL zapisz w przygotowanym pliku. <br />
+Pamiętaj o:  </p>
+
+<ol>
+<li>Zakładaniu odpowiednich atrybutów na pola (np. każde <strong>id</strong> powinno być kluczem głównym i być automatycznie numerowane).  </li>
+
+<li><strong>Używaniu odpowiednich typów danych dla każdej kolumny w bazie.</strong>  </li>
+
+<li><strong>Dokładnym czytaniu kodu błędów zwracanych przez MySQL.</strong>  </li>
+</ol>
+</body>
+</html>
