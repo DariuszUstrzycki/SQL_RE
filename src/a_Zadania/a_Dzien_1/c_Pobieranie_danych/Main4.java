@@ -20,7 +20,7 @@ public class Main4 {
     public String query1 = "SELECT SUM(quantity)  FROM ticket;";
     public String query2 = "SELECT type, COUNT(*) FROM payment GROUP BY type;";
     public String query3 = "SELECT AVG(price) FROM ticket;";
-    	public String query4 = "SELECT * FROM payments WHERE id > 1 LIMIT 3";// nie do konca...
-    	public String query5 = "SELECT * FROM payments WHERE quantity > 2 GROUP BY type"; // payment table nie ma type...
+    public String query4 = "SELECT * FROM payment LIMIT 3 OFFSET 2";
+    	public String query5 = "SELECT * FROM payment WHERE quantity > 2 GROUP BY type"; // payment table nie ma type...
     public String query6 = "SELECT SUM(quantity) FROM ticket WHERE quantity > 1;";
 }

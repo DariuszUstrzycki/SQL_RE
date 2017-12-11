@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p><img alt="Logo" src="http://coderslab.pl/svg/logo-coderslab.svg" width="400"></p>
+
+<h1 id="relacjejedendowielu">Relacje jeden do wielu</h1>
+
+<p>Wszystkie zapytania do bazy wykonuj w <strong>konsoli</strong>, dodatkowo zapisz treść zapytań do plików <strong>java</strong> przygotowanych do każdego zadania.</p>
+
+<p><strong>Część zadań w swoim poleceniu ma utworzenie relacji między tabelami, w takiej sytuacji należy zmodyfikować strukturę tabel i dodać nowe kolumny lub nowe tabele.</strong></p>
+
+<h4 id="zadanie1rozwizywanezwykadowc">Zadanie 1 - rozwiązywane z wykładowcą</h4>
+
+<p>W pliku <code>Main1.java</code>:</p>
+
+<p>W bazie danych o nazwie <code>products_ex</code> stwórz następującą tabele:</p>
+
+<pre><code class="SQL language-SQL">* Opinions:
+  * description: string
+</code></pre>
+
+<ol>
+<li>Tabela <code>Opinions</code> ma być połączona z tabelą <code>Products</code> relacją jeden do wielu (produkt ma wiele opinii, opinia jest przypisana do jednego produktu).</li>
+
+<li>Napisz po <code>5</code> zapytań, które dodadzą opinie do <code>3</code> istniejących produktów.  </li>
+</ol>
+
+<hr />
+
+<h4 id="zadanie2">Zadanie 2</h4>
+
+<p>W pliku <code>Main2.java</code>:</p>
+
+<p>W bazie danych o nazwie <code>products_ex</code> stwórz następującą tabele:</p>
+
+<pre><code class="SQL language-SQL">* Categories:
+  * id: int
+  * name: string
+* Categories_sub:
+  * id: int
+  * main_id: int -- relacja z id głównej kategorii
+  * name: string
+</code></pre>
+
+<p>Połącz tabele <code>Categories</code> i <code>Categories_sub</code> za pomocą relacji wiele do jednego (jedna kategoria może mieć wiele podkategorii, jedna podkategoria ma jedną kategorię nadrzędną).</p>
+
+<h4 id="zadanie3">Zadanie 3</h4>
+
+<p>W pliku <code>Main3.java</code>:</p>
+
+<p>Dodaj zapytania do pliku a następnie wypisz w konsoli:</p>
+
+<ol>
+<li>Wszystkie produkty które mają opinie oraz dostępne dla nich opinie. (nie powinny występować wartości null)</li>
+
+<li>Pobierz wszystkie produkty razem z opiniami niezależnie od tego czy mają opinie. (mogą występować wartości null)</li>
+
+<li>Pobierz wszystkie opinie dla produktu o id 1, wynik ma zawierać również wszystkie dane dotyczące produktu.</li>
+</ol>
+
+<h4 id="zadanie4">Zadanie 4</h4>
+
+<p>W pliku <code>Main4.java</code>:</p>
+
+<p>Dodaj zapytania do pliku a następnie wypisz w konsoli:</p>
+
+<ol>
+<li>Za pomocą odpowiedniego złączenia pobierz wszystkie podkategorie kategorii o id 1.</li>
+
+<li>Pobierz id oraz nazwę kategorii - tylko tych które mają podkategorie. (skorzystaj z <code>DISTINCT</code>).</li>
+</ol>
+</body>
+</html>

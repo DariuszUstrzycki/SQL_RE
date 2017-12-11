@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p><img alt="Logo" src="http://coderslab.pl/svg/logo-coderslab.svg" width="400"></p>
+
+<h1 id="mysqlsnippety">MySQL - Snippety</h1>
+
+<blockquote>
+  <p>Krótkie kawałki kodu, które pokazują zależności, rozwiązują popularne problemy oraz pokazują jak używać niektórych funkcji.</p>
+</blockquote>
+
+<h4 id="1jakpoczysizbazmysqlwjavie">1. Jak połączyć się z bazą MySQL w Javie.</h4>
+
+<pre><code class="Java language-Java">Connection conn;
+try {
+    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/1java?useSSL=false", "userName", "password");
+
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+</code></pre>
+
+<h4 id="2czymrnisikodowanieutf8_general_ciodutf8_polish_ci">2. Czym różni się kodowanie <code>utf8_general_ci</code> od <code>utf8_polish_ci</code>?</h4>
+
+<p>Różnica występuje w momencie sortowania danych, w przypadku <code>utf8_general_ci</code> wyrazy rozpoczęte od polskiego znaku trafią na koniec listy sortowania, dla przykładu posiadając w bazie miasta <code>Białystok, Łódź, Kraków, Arłamów, Zabrze</code> w przypadku kodowania:  </p>
+
+<ul>
+<li><code>utf8_general_ci</code> - miasta zostaną posortowane <code>Arłamów, Białystok, Kraków, Zabrze, Łódź</code></li>
+
+<li><code>utf8_polish_ci</code> - miasta zostaną posortowane <code>Arłamów, Białystok, Kraków, Łódź, Zabrze</code></li>
+</ul>
+
+<h4 id="3jakzkonsolipoczysizbazdanych">3. Jak z konsoli połączyć się z bazą danych?</h4>
+
+<pre><code class="SQL language-SQL">mysql -u userName -p dbName &lt;- ta komenda interaktywnie zapyta nas o hasło
+</code></pre>
+
+<p>Możemy także samodzielnie przełączyć się na bazę danych: </p>
+
+<pre><code class="SQL language-SQL">use dbName;
+</code></pre>
+
+<p>Aby sprawdzić liczbę tabel w bazie:</p>
+
+<pre><code class="SQL language-SQL">show tables;
+</code></pre>
+
+<h4 id="4jakusunwszystkorekordyztabeli">4. Jak usunąć wszystko rekordy z tabeli?</h4>
+
+<pre><code class="SQL language-SQL">DELETE FROM tableName;
+</code></pre>
+
+<p>Powyższe zapytanie resetuje również automatycznie licznik <code>auto_increment</code></p>
+
+<h4 id="5jakzkonsolidodanowegouytkownikadobazydanych">5. Jak z konsoli dodać nowego użytkownika do bazy danych?</h4>
+
+<p>Najpierw dodajemy użytkownika:  </p>
+
+<pre><code class="SQL language-SQL">CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+</code></pre>
+
+<p>A następnie musimy dodać użytkownikowi dostęp do wybranej bazy/tabeli</p>
+
+<pre><code class="SQL language-SQL">GRANT ALL ON database.* TO 'username'@'localhost';
+</code></pre>
+
+<p>Zapytania te są ogólnymi zapytaniami do dodania wszelkich uprawnień użytkownikowi na bazie, w celu bardziej szczegółowych uprawnień zapoznaj się z dokumentacją.</p>
+
+<h4 id="6jakpobraszczegoweinformacjekluczeitpzpobranychrekordw">6. Jak pobrać szczegółowe informacje (klucze itp.) z pobranych rekordów?</h4>
+
+<p>Dodajemy do naszego zapytania na początku <code>EXPLAIN</code> np.  </p>
+
+<pre><code class="SQL language-SQL">EXPLAIN SELECT * FROM users;
+</code></pre>
+
+<h4 id="7jakobliczyilorekordwwtabeli">7. Jak obliczyć ilość rekordów w tabeli?</h4>
+
+<pre><code class="SQL language-SQL">SELECT COUNT(anyColumnName) as count FROM tableName;
+</code></pre>
+
+<h4 id="8jakizakresdanychprzechowujetypvarchar">8. Jaki zakres danych przechowuje typ <code>varchar</code>?</h4>
+
+<p>W najnowszych wersjach MySQL <code>varchar</code> może przyjąć <code>65.535</code> znaków. Różnica występuje w zajętości pamięci przez rekord, w przypadku jeśli typ to maksymalnie <code>varchar(255)</code> długość pola zajmuje 1 bajt, w przypadku dowolnie dłuższej wielkości pola np. <code>varchar(1500)</code> długość będzie zajmować 2 bajty.</p>
+
+<h4 id="9czymonaprzechowywaliczbyjakotext">9. Czy można przechowywać liczby jako <code>text</code>?</h4>
+
+<p>Tak, ale nie należy tego robić, typy danych dla liczb np. <code>int</code> działają dużo szybciej w przypadku sortowania i pobierania danych.</p>
+
+<h4 id="10jakiegotypudanychuydoprzechowaniaceny">10. Jakiego typu danych użyć do przechowania ceny?</h4>
+
+<p><strong>Zdecydowanie</strong> <code>decimal</code> ponieważ przechowuje on dokładną wartość i nie wynikną problemy w przypadku operacji arytmetycznych.
+Definicja <code>decimal(6,2)</code> oznacza, iż liczba w sumie (przed i po przecinku) ma mieć <code>6</code> cyfr a tylko po przecinku <code>2</code>.</p>
+
+<h4 id="11jakwykonabackupbazydanych">11. Jak wykonać backup bazy danych?</h4>
+
+<p><strong>Backup pojedynczej bazy danych</strong></p>
+
+<pre><code class="Shell language-Shell">mysqldump -u root -pPASSWORD DB_NAME &gt; backup.sql
+</code></pre>
+
+<p>Syntax</p>
+
+<pre><code class="Shell language-Shell">mysqldump -u root -p[root_password] [database_name] &gt; dumpfilename.sql
+</code></pre>
+
+<p><strong>Backup wielu bazy danych</strong></p>
+
+<pre><code class="Shell language-Shell">mysqldump -u root -pPASSWORD --databases DB_NAME_1 DB_NAME_2 &gt; backup_multi.sql
+</code></pre>
+
+<p><strong>Backup wszystkich baz danych</strong></p>
+
+<pre><code class="Shell language-Shell">mysqldump -u root -pPASSWORD --all-databases &gt; backup_all.sql
+</code></pre>
+
+<p><strong>Backup pojedynczej tabeli</strong></p>
+
+<pre><code class="Shell language-Shell">mysqldump -u root -pPASSWORD DB_NAME TABLE_NAME &gt; backup_table_in_db.sql
+</code></pre>
+
+<pre><code>
+</code></pre>
+
+<h4 id="12jakprzywrcibackupbazydanych">12. Jak przywrócić backup bazy danych?</h4>
+
+<pre><code class="Shell language-Shell">mysql -u root -pPASSWORD DB_NAME &lt; /tmp/backup.sql
+</code></pre>
+
+<p>Syntax</p>
+
+<pre><code class="Shell language-Shell">mysql -u root -p[root_password] [database_name] &lt; dumpfilename.sql
+</code></pre>
+
+<h4 id="13jakwygenerowakodsqltworzcywybrantabel">13. Jak wygenerować kod <code>sql</code> tworzący wybraną tabelę?</h4>
+
+<pre><code class="SQL language-SQL">SHOW CREATE TABLE table_name;
+</code></pre>
+
+<h4 id="14jakmasowozamienistringwewszystkichrekordachwkolumnie">14. Jak masowo zamienić string we wszystkich rekordach w kolumnie?</h4>
+
+<pre><code class="SQL language-SQL">UPDATE   TABLE
+SET      COLUMN = REPLACE(COLUMN, search_string, replace_string)
+WHERE    COLUMN LIKE '%search_string%'
+</code></pre>
+
+<p>np.</p>
+
+<pre><code class="SQL language-SQL">UPDATE   DatabaseName.TableName
+SET      PDF_NAME = REPLACE(PDF_NAME, '+', '_')
+WHERE    PDF_NAME LIKE '%+%'
+</code></pre>
+
+<h4 id="15jakwwheredodawarunekxdnitemu">15. Jak w <code>where</code> dodać warunek <code>x dni</code> temu?</h4>
+
+<pre><code class="SQL language-SQL">WHERE my_date &gt;= DATE_SUB(CURRENT_DATE(), INTERVAL 5 DAY)
+</code></pre>
+
+<h4 id="16jakusunrekordyozduplikowanejwartociwybranejkolumnypozostawiajcjedenrekordzdanwartoci">16. Jak usunąć rekordy o zduplikowanej wartości wybranej kolumny, pozostawiając jeden rekord z daną wartością?</h4>
+
+<p>Założenie, nasza tabela wygląda następująco:</p>
+
+<pre><code class="SQL language-SQL">+----+--------+
+| id | name   |
++----+--------+
+| 1  | google |
+| 2  | yahoo  |
+| 3  | msn    |
+| 4  | google | &lt;-- duplikat
+| 5  | google | &lt;-- duplikat
+| 6  | yahoo  | &lt;-- duplikat
++----+--------+
+</code></pre>
+
+<p>Chcemy osiągnąć:</p>
+
+<pre><code class="SQL language-SQL">+----+--------+
+| id | name   |
++----+--------+
+| 1  | google |
+| 2  | yahoo  |
+| 3  | msn    |
++----+--------+
+</code></pre>
+
+<p>Wykonujemy zapytanie:</p>
+
+<pre><code class="SQL language-SQL">DELETE n1 FROM names n1, names n2 WHERE n1.id &gt; n2.id AND n1.name = n2.name
+</code></pre>
+
+<p>Gdzie:</p>
+
+<pre><code>n1, n2 - aliasy tej samej tabeli
+n1.name = n2.name - porównanie wartości rekordów czy są takie same, name to nazwa kolumny, w której szukamy duplikatów
+n1.id &gt; n2.id - usuwa rekordy, pozostawiając pojedynczy rekord z najniższym id
+</code></pre>
+
+<h4 id="17jakpobieraunikalnyrekord">17. Jak pobierać unikalny rekord?</h4>
+
+<p>Jeśli chcemy sprawdzić czy istnieje w naszej tabeli jakikolwiek <code>user</code> gdzie <code>city</code> to <code>Warsaw</code>
+Zamiast</p>
+
+<pre><code class="SQL language-SQL">SELECT * FROM user WHERE city = 'Warsaw';
+</code></pre>
+
+<p>Wydajniej zadziała</p>
+
+<pre><code class="SQL language-SQL">SELECT * FROM user WHERE city = 'Warsaw' LIMIT 1;
+</code></pre>
+
+<p><code>LIMIT 1</code> spowoduje zatrzymanie dalszego przeszukiwania tabeli po znalezieniu pierwszego rekordu spełniającego warunek <code>WHERE</code>.</p>
+
+<h4 id="18jakwykonywazapytanianakolumnachtekstowychzindexem">18. Jak wykonywać zapytania na kolumnach tekstowych z indexem?</h4>
+
+<p>Jeśli dodaliśmy indeks do kolumny tekstowej, indeks zostanie użyty jedynie jeśli w zapytaniu <code>LIKE</code> na początku wzorca nie znajdzie się znak dowolnego znaku czyli <code>%</code>.</p>
+
+<p>Nie użyje indeksu:</p>
+
+<pre><code class="SQL language-SQL">SELECT * FROM user WHERE city LIKE '%War%';
+</code></pre>
+
+<p>Użyje indeksu:</p>
+
+<pre><code class="SQL language-SQL">SELECT * FROM user WHERE city LIKE 'War%';
+</code></pre>
+
+<h4 id="19czyistniejernicaprzyuyciuvarchar10atextdlastringwmajcychmax10znakw">19. Czy istnieje różnica przy użyciu <code>varchar(10)</code> a <code>text</code> dla stringów mających max. 10 znaków?</h4>
+
+<p>Tak, zawsze używaj najmniejszego możliwego zakresu danych, w których mieści się zakładana wartość. <br />
+Mniejszy zakres to mniej użytej pamięci jak również szybsze wyszukiwanie.</p>
+
+<h4 id="20jakprawidowopobieradaneztabel">20. Jak prawidłowo pobierać dane z tabel?</h4>
+
+<p>Jeśli to możliwe, nie pobierajmy wszystkich kolumn z tabeli a więc zamiast:</p>
+
+<pre><code class="SQL language-SQL">SELECT * FROM users
+</code></pre>
+
+<p>użyj</p>
+
+<pre><code class="SQL language-SQL">SELECT col1, col2, col3 FROM users
+</code></pre>
+
+<p>Dzięki temu przesłane będzie mniej danych, co zoptymalizuje szybkość działania.</p>
+
+<h4 id="21jakiegotypuuydlakolumnystatusuzamwienia">21. Jakiego typu użyć dla kolumny statusu zamówienia?</h4>
+
+<p>Jeśli nasza kolumna przechowuje kilka stałych wartości np. statusu zamówienia:</p>
+
+<ul>
+<li>złożone</li>
+
+<li>opłacone</li>
+
+<li>realizowane</li>
+
+<li>wysłane  </li>
+</ul>
+
+<p>Możemy użyć typu <code>varchar</code> ale zdecydowanie lepszym i wydajniejszym będzie tutaj typ <code>enum</code></p>
+
+<h4 id="22jakprzechowaadresipuytkownikawbaziedanych">22. Jak przechować adres IP użytkownika w bazie danych?</h4>
+
+<p>Adres IP składa się minimalnie z 7 znaków <code>1.1.1.1</code> a maksymalnie z 15 znaków <code>192.168.154.199</code>. <br />
+ Pierwszym typem, który przychodzi na myśl do użycia w kolumnie jest <code>varchar</code>. <br />
+ Lepszym rozwiązaniem będzie tutaj użycie typu <code>int</code> i funkcji <code>MySQL</code> <code>INET_ATON</code>, która zamieni adres IP z formy tekstowej na liczbę całkowitą oraz <code>INET_NTOA</code>, która zamieni liczbę całkowitą na adres IP. <br />
+ Wartość liczbowa jest zawsze wydajniejsza przy sortowaniu i wyszukiwaniu.</p>
+
+<h4 id="23narzdziadoanalizybazdanychwceluoptymalizacji">23. Narzędzia do analizy baz danych w celu optymalizacji.</h4>
+
+<ul>
+<li>https://github.com/major/MySQLTuner-perl</li>
+
+<li>https://github.com/RootService/tuning-primer</li>
+</ul>
+</body>
+</html>

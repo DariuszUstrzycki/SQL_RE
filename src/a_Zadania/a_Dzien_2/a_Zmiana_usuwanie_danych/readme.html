@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p><img alt="Logo" src="http://coderslab.pl/svg/logo-coderslab.svg" width="400"></p>
+
+<h1 id="zmianaiusuwaniedanych">Zmiana i usuwanie danych</h1>
+
+<p>Wszystkie zapytania do bazy wykonuj w <strong>konsoli</strong>, dodatkowo zapisz treść zapytań do plików <code>java</code> przygotowanych do każdego zadania.</p>
+
+<h4 id="zadanie1rozwizywanezwykadowc">Zadanie 1 - rozwiązywane z wykładowcą</h4>
+
+<p>Praca na bazie <code>cinemas_ex</code></p>
+
+<p>W pliku <code>Main1.java</code>:  </p>
+
+<ol>
+<li>Pobierz z bazy <code>id</code> i <code>tytuł</code> filmu, a następnie wyświetl na konsoli listę filmów.</li>
+
+<li>Pobierz od użytkownika identyfikator filmu z konsoli.</li>
+
+<li>Usuń wiersz na podstawie pobranego identyfikatora.</li>
+</ol>
+
+<hr />
+
+<h4 id="zadanie2">Zadanie 2</h4>
+
+<p>Praca na bazie <code>cinemas_ex</code>  </p>
+
+<p>W pliku <code>Main2.java</code>:  </p>
+
+<ol>
+<li>Pobierz z bazy listę biletów i wyświetl na konsoli.</li>
+
+<li>Pobierz od użytkownika identyfikator biletu z konsoli.</li>
+
+<li>Pobierz z konsloli ilość sprzedanych biletów.</li>
+
+<li>Zmodyfikuj odpowiedni wiersz w bazie danych.</li>
+</ol>
+
+<h4 id="zadanie3">Zadanie 3</h4>
+
+<p>W pliku <code>Main3.java</code>  napisz zapytania SQL, (dla bazy danych <code>cinemas_ex</code>), które:  </p>
+
+<ol>
+<li>Usunie wiersz z tabeli o id =4.</li>
+
+<li>Usunie wiersze z tabeli o nazwie <code>helios</code>.</li>
+
+<li>Ustawi dla wszystkich biletów ilość na 10.</li>
+
+<li>Usunie wszystkie płatności któych data jest mniejsza niż 2017-01-01.</li>
+</ol>
+
+<h4 id="zadanie4">Zadanie 4</h4>
+
+<p>Praca na bazie <code>cinemas_ex</code> <br />
+W pliku <code>Main4.java</code>:</p>
+
+<p>Napisz następujące zapytania do bazy:</p>
+
+<ol>
+<li>Zmieniające adres na <code>Stadion Narodowy</code> dla kin których nazwa kończy się na <code>Z</code>. </li>
+
+<li>Usuwające płatności, których data jest starsza niż <code>4</code> dni od aktualnego czasu z dokładnością do sekundy.</li>
+
+<li>Zmieniające rating filmu na <code>5.4</code> dla filmów gdzie opis jest dłuższy niż <code>40</code> znaków - poszukaj funkcji <code>MySQL</code>, która sprawdza ilość znaków.</li>
+
+<li>Zmieniające cenę biletu o <code>50%</code> jeśli ilość jest większa niż <code>10</code>, jako pojedyncze zapytanie <code>SQL</code>.</li>
+</ol>
+
+<h4 id="zadanie5">Zadanie 5</h4>
+
+<p>Praca na bazie <code>cinemas_ex</code> <br />
+W pliku <code>Main5.java</code>:  </p>
+
+<ol>
+<li>Pobierz z bazy wszystkie kina.</li>
+
+<li>Dla każdego pobranego wiersza, wyświetl id, nazwę i adres kina na konsoli.</li>
+
+<li>Pobierz z konsoli od użytkownika czy chce dokonać edycji, lub usunięcia, (ma wpisać e jeżeli edycja, u - jeżeli usunięcie, x- jeżeli wyjście z programu).
+(odpytanie powinno odbywać się w pętli).</li>
+
+<li>Jeżeli wybrał e lub u, odpytujemy o id wiersza do edycji/usunięcia.</li>
+
+<li>W przypadku edycji, pobieramy nową nazwę oraz adres i modyfikujemy dane. Wyświetlamy wszystkie wiersze ponownie.</li>
+
+<li>W przypadku usunięcia, prosimy o potwierdzenie przez wpisanie <code>T</code> lub <code>n</code>, po wybraniu <code>T</code>, usuwamy wiersz i wyświetlamy wszystkie wiersze ponownie.</li>
+</ol>
+</body>
+</html>

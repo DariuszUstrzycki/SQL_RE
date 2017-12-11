@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p><img alt="Logo" src="http://coderslab.pl/svg/logo-coderslab.svg" width="400"></p>
+
+<h1 id="relacjejedendojednego">Relacje jeden do jednego</h1>
+
+<p>Wszystkie zapytania do bazy wykonuj w <strong>konsoli</strong>, dodatkowo zapisz treść zapytań do plików <code>java</code> przygotowanych do każdego zadania.</p>
+
+<p><strong>Część zadań w swoim poleceniu ma utworzenie relacji między tabelami, w takiej sytuacji należy zmodyfikować strukturę tabel i dodać nowe kolumny lub nowe tabele</strong></p>
+
+<h4 id="zadanie1rozwizywanezwykadowc">Zadanie 1 - rozwiązywane z wykładowcą</h4>
+
+<p>W pliku <code>Main1.java</code>:
+W bazie danych o nazwie <code>products_ex</code> stwórz następującą tabele:</p>
+
+<pre><code class="SQL language-SQL">* ClientAddress:
+  * client_id: int
+  * city: string
+  * street: string
+  * house_nr: string
+</code></pre>
+
+<p>Tabela <code>ClientAddress</code> ma być połączona relacją jeden do jednego z tabelą <code>Clients</code>. <br />
+Napisz 5 zapytań SQL, które wprowadzą adresy dla istniejących już użytkowników.</p>
+
+<hr />
+
+<h4 id="zadanie2importbazydanych">Zadanie 2 - import bazy danych</h4>
+
+<p>Jeżeli nie masz bazy danych <code>cinemas_ex</code> albo masz ją niekompletną, to usuń ją i stwórz nową bazę danych o nazwie <code>cinemas_ex</code>. <br />
+Następnie zaimportuj do niej dane z pliku <strong>cinema.sql</strong>. Są to tabele powypełniane dużą ilością danych. Takie jak wczoraj, brakuje tylko tabeli płatności.</p>
+
+<h4 id="zadanie3">Zadanie 3</h4>
+
+<p>W pliku <code>Main3.java</code>:
+Praca na bazie <code>cinemas_ex</code>  </p>
+
+<p>Stwórz tabelę do płatności. <br />
+Ma mieć takie same dane jak w zadaniach z poprzedniego dnia. <br />
+```SQL</p>
+
+<ul>
+<li>Payments:
+
+
+<ul>
+<li>id: int</li>
+
+<li>type: string</li>
+
+<li>date: date
+```</li></ul>
+</li>
+</ul>
+
+<p>Dodatkowo z tabelą <code>Tickets</code> ma być powiązana relacją jeden do jednego. <br />
+Relacja między biletem a płatnością jest następująca:  </p>
+
+<ul>
+<li>bilet ma <code>1</code> lub <code>0</code> płatności (jest wtedy nieopłacony)</li>
+
+<li>płatność musi być przypisana do biletu <strong>(dodaj odpowiednią kolumnę do tabeli <code>Payments</code> podczas jej tworzenia)</strong></li>
+</ul>
+
+<p>Uzupełnij tabelę <code>Payments</code> kilkoma wpisami. Przyjmowane typy płatności (<code>cash</code>, <code>transfer</code>, <code>card</code>).</p>
+
+<h4 id="zadanie4">Zadanie 4</h4>
+
+<p>W pliku <code>Main4.java</code>:
+Dodaj zapytania do pliku a następnie wypisz w konsoli:</p>
+
+<ol>
+<li>Wszystkie bilety które zostały opłacone gotówką (czyli <code>type</code> = <code>cash</code> ).</li>
+
+<li>Wszystkie bilety które zostały opłacone przelewem (czyli <code>type</code> = <code>transfer</code> ).</li>
+
+<li>Wszystkie bilety które zostały opłacone kartą (czyli <code>type</code> = <code>card</code> ).</li>
+
+<li>Wszystkie bilety które nie zostały jeszcze opłacone.</li>
+</ol>
+</body>
+</html>

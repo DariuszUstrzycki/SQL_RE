@@ -10,22 +10,22 @@ public class Main4 {
 	static String queryCreateTable1 = "CREATE TABLE cinema("
 			+ " id INT AUTO_INCREMENT,"
 			+ " name VARCHAR(50),"
-			+ " address VARCHAR(255),"
+			+ " address VARCHAR(255)," // text - w wersji CodersLab
 			+ " PRIMARY KEY(id) );";
 
 //Zapisz w poniższej zmiennej kod zapytania SQL tworzącego drugą tabelę
 	static String queryCreateTable2 = "CREATE TABLE movie("
 			+ " id INT AUTO_INCREMENT,"
 			+ " name VARCHAR(50),"
-			+ " description VARCHAR(255),"
-			+ " rating DECIMAL(2,0),"
+			+ " description VARCHAR(255),"  // text - w wersji CodersLab
+			+ " rating DECIMAL(2,0)," // 4,2 w wersji CL
 			+ " PRIMARY KEY(id) );";
 
 //Zapisz w poniższej zmiennej kod zapytania SQL tworzącego trzecią tabelę
 	static String queryCreateTable3 = "CREATE TABLE ticket("
 			+ " id INT AUTO_INCREMENT,"
 			+ " quantity INT,"
-			+ " price DECIMAL(6,2),"
+			+ " price DECIMAL(6,2)," // 5,2 CL
 			+ " PRIMARY KEY(id) );";
 
 //Zapisz w poniższej zmiennej kod zapytania SQL tworzącego czwartą tabelę

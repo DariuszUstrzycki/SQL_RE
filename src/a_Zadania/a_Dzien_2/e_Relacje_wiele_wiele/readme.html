@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p><img alt="Logo" src="http://coderslab.pl/svg/logo-coderslab.svg" width="400"></p>
+
+<h1 id="relacjewieledowielu">Relacje wiele do wielu</h1>
+
+<p>Wszystkie zapytania do bazy wykonuj w <strong>konsoli</strong>, dodatkowo zapisz treść zapytań do plików <code>java</code> przygotowanych do każdego zadania.</p>
+
+<p><strong>Część zadań w swoim poleceniu ma utworzenie relacji między tabelami, w takiej sytuacji należy zmodyfikować strukturę tabel i dodać nowe kolumny lub nowe tabele.</strong></p>
+
+<h4 id="zadanie1rozwizywanezwykadowc">Zadanie 1 - rozwiązywane z wykładowcą</h4>
+
+<p>Praca na bazie <code>products_ex</code> <br />
+W pliku <code>Main1.java</code>:
+Połącz tabele <code>Products</code> i <code>Orders</code> relacją wiele do wielu. <br />
+Nową tabelę nazwij <code>Products_Orders</code>. <br />
+Napisz 4 zapytania, które połączą istniejące już produkty z zamówieniami.</p>
+
+<p>Napisz w metodzie <code>main</code>, program, który wyświetli:</p>
+
+<ul>
+<li>wszystkie zamówienia,</li>
+
+<li>wszystkie produkty należące do zamówienia (pod odpowiednim zamówieniem), np:</li>
+</ul>
+
+<pre><code>Zamówienie o id 6:
+* Produkt o id 1
+* Produkt o id 3
+* Produkt o id 7
+</code></pre>
+
+<h4 id="zadanie2rozwizywanezwykadowc">Zadanie 2 - rozwiązywane z wykładowcą</h4>
+
+<p>Praca na bazie <code>products_ex</code> <br />
+W pliku <code>Main2.java</code>:</p>
+
+<p>Napisz program, który wyświetli:</p>
+
+<ul>
+<li>wszystkie produkty,</li>
+
+<li>zamówienia, w których ten produkt się pojawił (pod odpowiednim produktem), np:</li>
+</ul>
+
+<pre><code>Produkt o id 12:
+* Zamówienie o id 5
+* Zamówienie o id 6
+* Zamówienie o id 11
+</code></pre>
+
+<hr />
+
+<h4 id="zadanie3">Zadanie 3</h4>
+
+<p>Praca na bazie <code>cinemas_ex</code> <br />
+W pliku <code>Main3.java</code>:</p>
+
+<ol>
+<li>Połącz tabele <code>Cinemas</code> i <code>Movies</code> poprzez relację wiele do wielu (film może być wyświetlany w wielu kinach, kino może mieć wiele filmów). 
+Dodatkowo stworzoną tabelę nazwij <code>Screenings</code>.</li>
+
+<li>Uzupełnij tabelę kilkoma wpisami.</li>
+</ol>
+
+<h4 id="zadanie4">Zadanie 4</h4>
+
+<p>Praca na bazie <code>cinemas_ex</code>
+W pliku <code>Main4.java</code>:</p>
+
+<ol>
+<li>Napisz program, który wyświetli wszystkie kina w których wyświetlany jest dany film.</li>
+</ol>
+
+<pre><code>Film o id 12:
+* Kino o id 5
+* Kino o id 6
+* Kino o id 11
+</code></pre>
+
+<h4 id="zadanie5">Zadanie 5</h4>
+
+<p>Praca na bazie <code>cinemas_ex</code>
+W pliku <code>Main5.java</code>:</p>
+
+<ol>
+<li>Napisz program, który wyświetli wszystkie filmy które można obejrzeć w danym kinie.</li>
+</ol>
+
+<pre><code>Kino o id 12:
+* Film o id 5
+* Film o id 6
+* Film o id 11
+</code></pre>
+</body>
+</html>
